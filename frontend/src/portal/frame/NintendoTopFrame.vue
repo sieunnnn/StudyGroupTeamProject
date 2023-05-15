@@ -1,9 +1,14 @@
 <template>
-  <h3>top frame</h3>
+  <UserMain />
 </template>
 
 <script>
+import UserMain from '@/portal/user/UserMain'
+
 export default {
-  name: 'NintendoTopFrame'
+  name: 'NintendoTopFrame',
+  components: {
+    UserMain
+  }
 }
 </script>
