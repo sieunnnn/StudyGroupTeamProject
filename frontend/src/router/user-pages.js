@@ -3,11 +3,7 @@ const userPages = [
     {
         path: '/main',
         component: () => import('@/portal/frame/NintendoScreen')
-        /*, children: [
-            {
-                path: '',
-            }
-        ]*/
+
     }
 
 ]
