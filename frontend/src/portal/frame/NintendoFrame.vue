@@ -25,4 +25,5 @@ export default {
 
 <style lang="css">
 @import "../../assets/css/common.css";
+@import "../../assets/css/user.css";
 </style>

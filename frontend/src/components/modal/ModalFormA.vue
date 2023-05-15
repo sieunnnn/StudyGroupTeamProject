@@ -16,7 +16,3 @@ export default {
   name: 'MessageModal'
 }
 </script>
-
-<style lang="css">
-@import "../../assets/css/modal.css";
-</style>

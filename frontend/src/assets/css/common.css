@@ -26,7 +26,7 @@
 .nintendo_top_frame {
 
     /*위치 확인용 색상*/
-    background-color: blue;
+    /*background-color: blue;*/
 
     width: 468px;
     height: 346px;
@@ -54,7 +54,7 @@
 
 /*모달 뒷배경*/
 .modal_mask {
-    position: fixed;
+    position: absolute;
     z-index: 9998;
     top: 0;
     left: 0;
@@ -73,9 +73,29 @@
     font-family: 'Galmuri9';
     font-size: 11px;
 
+    display: flex;
+    flex-direction: column;
+    place-items: flex-start;
+
     width: 400px;
     height: 115.63px;
+
+    position: absolute;
+    top: 170px;
+    left: 35px;
 }
+
+.select:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-thickness: 1.5px;
+}
+
+.select img{
+    width: 16px;
+    height: 15px;
+}
+
 
 .next_btn img{
     width: 18px;
