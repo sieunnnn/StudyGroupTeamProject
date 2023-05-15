@@ -3,8 +3,7 @@
 <template>
   <div class="modal_mask">
     <div class="container_message_modal">
-      <slot name="contents">
-      </slot>
+      <slot name="contents" />
     </div>
   </div>
 </template>
