@@ -2,8 +2,7 @@
 <!-- 대화 창 -->
 <template>
   <div class="modal_mask">
-    <slot name="character">
-    </slot>
+    <slot name="character" />
     <div class="container_message_modal">
       <slot name="contents" />
     </div>
