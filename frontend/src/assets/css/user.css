@@ -24,3 +24,25 @@
     width: 50px;
     height: 45.83px;
 }
+
+.npc1_m {
+    position: absolute;
+    width: 105.6px;
+    height: 112.09px;
+
+    left: 300px;
+    top: 80px;
+
+    z-index: 999999999;
+}
+
+.npc1_m_2 {
+    position: absolute;
+    width: 105.6px;
+    height: 112.09px;
+
+    left: 300px;
+    top: 95px;
+
+    z-index: 999999999;
+}
