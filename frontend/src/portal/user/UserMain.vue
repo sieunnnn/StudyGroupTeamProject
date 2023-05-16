@@ -19,14 +19,14 @@
             성에 들어가려면 아이디가 있어야해. 아이디를 말해줘
           </div>
 
-          <router-link to="/user/signup" class="btn btn-info btn-sm mr-2">
+          <router-link to="/user/signup">
             <div class="select" id="toSignUp" :style="`margin-bottom: 3px`" @click="showSignupModal">
               <img src="../../assets/images/select_btn.png"/>
               아이디..? 없는데...
             </div>
           </router-link>
 
-          <router-link to="/user/login" class="btn btn-info btn-sm mr-2">
+          <router-link to="/user/login">
             <div class="select" id="toLogin" @click="showLoginModal">
               <img src="../../assets/images/select_btn.png" />
               어디다가 입력하면 되는거야?
