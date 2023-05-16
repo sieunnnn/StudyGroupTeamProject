@@ -174,3 +174,29 @@ button {
     border: none;
     border-radius: 5px;
 }
+
+/*[end] modal==========================================================================*/
+
+/*[start] a link ==========================================================================*/
+
+a {
+    color: black;
+    text-decoration-line: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration-line: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration-line: none;
+}
+
+a:active {
+    color: black;
+    text-decoration-line: none;
+}
+
+/*[end] a link ==========================================================================*/
