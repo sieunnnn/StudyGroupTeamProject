@@ -1,8 +1,18 @@
 const userPages = [
-    { path: '', redirect: '/main' },
     {
-        path: '/main',
-        component: () => import('@/portal/frame/NintendoScreen')
+        path: '/user',
+        component: () => import('@/portal/frame/NintendoScreen'),
+
+        children: [
+            {
+                path: "signup",
+                component: () => import('@/portal/user/UserSignUpBottom'),
+            },
+            {
+                path: "login",
+                component: () => import('@/portal/user/UserLoginBottom'),
+            }
+        ]
 
     }
 

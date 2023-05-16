@@ -1,3 +1,4 @@
+/*[start] main ==========================================================================*/
 
 .container_main {
     background-image: url("../../assets/images/background_home.png");
@@ -45,4 +46,97 @@
     top: 95px;
 
     z-index: 999999999;
+}
+
+/*[end] main ==========================================================================*/
+
+/*[start] signup ==========================================================================*/
+
+.container_signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper_signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Galmuri9';
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.wrapper_signup input {
+    color: #1E1E1C;
+
+    font-size: 12px;
+
+    width: 135px;
+    height: 16px;
+
+    margin: 3px 0 10px 0;
+}
+
+.next_btn {
+    margin-top: 3px;
+    cursor: grab;
+}
+
+/*[end] signup ==========================================================================*/
+
+/*[start] signup ==========================================================================*/
+
+.container_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.modal_login {
+    background-image: url("../images/login_form.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 394.97px;
+    height: 245.57px;
+}
+
+.wrapper_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Galmuri9';
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.wrapper_login input {
+    color: #1E1E1C;
+
+    font-size: 12px;
+
+    width: 135px;
+    height: 16px;
+
+    margin: 5px 0 10px 0;
+}
+
+.wrapper_login button {
+    font-family: 'Galmuri9';
+    color: white;
+    cursor: grab;
 }
