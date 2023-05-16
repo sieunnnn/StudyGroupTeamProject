@@ -8,4 +8,10 @@ public class Controller {
     public String helloWorld() {
         return "hello!";
     }
+    
+    @GetMapping(value = "/test")
+    public String helloWorldtest() {
+    	System.out.println("test");
+        return "hello!";
+    }
 }

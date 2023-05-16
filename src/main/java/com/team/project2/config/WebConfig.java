@@ -1,6 +1,7 @@
 package com.team.project2.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,6 +13,8 @@ public class WebConfig implements WebMvcConfigurer {
         // CORS 요청 처리를 활성화 할 URL 지정
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:8080")
+                .allowedOrigins("http://localhost:8081")
+                .allowedMethods(HttpMethod.GET.name())
                 .allowCredentials(true);
     }
 }

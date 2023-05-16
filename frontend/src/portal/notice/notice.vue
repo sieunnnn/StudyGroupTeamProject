@@ -26,8 +26,8 @@
 </template>
 
 <script>
-
- import noticeLists from './noticeList.vue';
+import noticeLists from './noticeList.vue';
+import axios from 'axios';
 
 export default {
     name: 'AllNotice',
@@ -41,8 +41,13 @@ export default {
     },
     methods: {
         showNoticeList(){
-            console.dir("열기")
-            setTimeout(()=> this.isListOpen=true,10)
+            setTimeout(()=> this.isListOpen=true,10);
+            axios.get('/api/notice/selectNotice')
+            .then(res => {
+              this.apiRes = res.data;
+              console.dir(this.apiRes);
+            })            
+            
         },
         closeNoticeList(){
             if(this.isListOpen==true) this.isListOpen=false;
