@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { router } from "@/router";
+import router from "@/router/index";
 import signup from "@/test/signup";
 
 export const useSignupStore = defineStore("signup",  {
@@ -49,12 +49,12 @@ export const useSignupStore = defineStore("signup",  {
             const response = await signup.submit(this.$state);
 
             if (response.data.errorCode) {
-                alert(response.data.errorText);
+                alert(response.data.errorMessage);
                 return;
             }
 
             alert("회원가입이 완료되었습니다.");
-            router.push({ path: '/user/login'});
+            router.push({ path: '/'});
         },
     },
 });
