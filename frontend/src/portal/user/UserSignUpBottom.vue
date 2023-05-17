@@ -15,8 +15,8 @@
           <label>닉네임</label><br>
           <input type="text" v-model="signup.nickname" />
         </div>
-        <button>
-          <span @click="signup.submit()" :disabled="!signup.canSignup" :style="`margin-top: 2px`">회원가입</span>
+        <button @click="signup.submit()" :disabled="!signup.canSignup">
+          <span :style="`margin-top: 2px`">회원가입</span>
         </button>
       </form>
     </template>
