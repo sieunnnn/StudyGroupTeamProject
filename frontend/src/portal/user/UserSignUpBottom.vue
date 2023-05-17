@@ -2,49 +2,49 @@
 <template>
   <ModalFormA class="container_signup">
     <template #contents>
-      <div class="wrapper_signup">
-        <div :style="`margin-top: 35px`">
-          <label>아이디</label><br>
-          <input type="text" v-model="userId" />
+      <form @submit.prevent="submitSignupForm" class="wrapper_signup">
+        <div :style="`margin-top: 50px`">
+          <label>이메일</label><br>
+          <input type="text" v-model="signup.email" />
         </div>
         <div>
           <label>비밀번호</label><br>
-          <input type="text" v-model="userPw" />
+          <input type="text" v-model="signup.password" />
         </div>
-        <div>
-          <label>이메일</label><br>
-          <input type="text" v-model="userEmail" />
-        </div>
-        <div>
+        <div :style="`margin-bottom: 15px`">
           <label>닉네임</label><br>
-          <input type="text" v-model="userNickname" />
+          <input type="text" v-model="signup.nickname" />
         </div>
-        <div class="next_btn">
-          <img src="../../assets/images/next_btn.png">
-        </div>
-      </div>
+        <button @click="signup.submit" :disabled="!signup.canSignup">
+          <span :style="`margin-top: 2px`">회원가입</span>
+        </button>
+      </form>
     </template>
   </ModalFormA>
 </template>
 
 <script>
 import ModalFormA from "@/components/modal/ModalFormA";
+import { useSignupStore } from "@/store/signup";
 
 export default {
-  name: 'SignUp',
-
-  data: function () {
+  setup() {
+    const signup = useSignupStore();
     return {
-      userId: '아이디를 입력해주세요.',
-      userPw: '비밀번호를 입력해주세요.',
-      userEmail: '이메일을 입력해주세요.',
-      userNickname: '닉네임을 입력해주세요.'
-
+      signup: signup
     }
   },
 
+  name: 'SignUp',
+
   components: {
     ModalFormA
+  },
+
+  methods: {
+    submitSignupForm() {
+      console.log('전송완료')
+    }
   }
 }
 </script>
