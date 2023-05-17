@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import router from "@/router/user-pages";
 import signup from "@/test/signup";
 
 export const useSignupStore = defineStore("signup",  {
