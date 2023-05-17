@@ -1,5 +1,5 @@
 <template>
-  <h3>bottom frame</h3>
+  <router-view />
 </template>
 
 <script>
