@@ -13,6 +13,8 @@
     background-image: url("../images/nintendo_frame.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
 
     width: 994px;
     height: 918px;
