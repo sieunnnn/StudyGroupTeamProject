@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import router from "@/router/index";
+import router from "@/router/user-pages";
 import signup from "@/test/signup";
 
 export const useSignupStore = defineStore("signup",  {
@@ -30,6 +30,7 @@ export const useSignupStore = defineStore("signup",  {
 
         errorNickname() {
             if (this.nickname.length === 0) return "☑ 닉네임을 입력해줘. 어떤 이름이 좋으려나~?";
+            return "";
         },
 
         canSignup() {
@@ -54,7 +55,6 @@ export const useSignupStore = defineStore("signup",  {
             }
 
             alert("회원가입이 완료되었습니다.");
-            router.push({ path: '/'});
         },
     },
 });
