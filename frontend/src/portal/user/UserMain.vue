@@ -78,7 +78,7 @@
     <!-- messageModal -->
     <MessageModal v-if="signupValidation">
       <template #character>
-        <img src="../../assets/images/npc1_m.png" class="npc1_m_2"/>
+        <img src="../../assets/images/npc1_m.png" class="npc1_m"/>
       </template>
       <template #contents>
         <div :style="`margin: 25px 30px; font-size: 12px`">
