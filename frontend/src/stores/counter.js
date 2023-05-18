@@ -1,5 +1,4 @@
 import {defineStore} from "pinia";
-import {router} from "@/router/index";
 
 // interface notice {
 //     notice_idx: Number;

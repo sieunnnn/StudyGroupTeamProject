@@ -1,17 +1,26 @@
 <template>
   <div class="container_main">
-    <div class="npc1" @click="showModal">
-      <img src="../../assets/images/npc1.png" />
+    <div
+      class="npc1"
+      @click="showModal"
+    >
+      <img src="../../assets/images/npc1.png">
     </div>
 
-    <div class="kirby" ref="kirby_position">
-      <img src="../../assets/images/kirby_org.png" />
+    <div
+      ref="kirby_position"
+      class="kirby"
+    >
+      <img src="../../assets/images/kirby_org.png">
     </div>
 
     <!-- messageModal -->
     <MessageModal v-if="modalOpen">
       <template #character>
-        <img src="../../assets/images/npc1_m.png" class="npc1_m"/>
+        <img
+          src="../../assets/images/npc1_m.png"
+          class="npc1_m"
+        >
       </template>
       <template #contents>
         <div :style="`margin: 25px 30px`">
@@ -20,15 +29,24 @@
           </div>
 
           <router-link to="/user/signup">
-            <div class="select" id="toSignUp" :style="`margin-bottom: 3px`" @click="showSignupModal">
-              <img src="../../assets/images/select_btn.png"/>
+            <div
+              id="toSignUp"
+              class="select"
+              :style="`margin-bottom: 3px`"
+              @click="showSignupModal"
+            >
+              <img src="../../assets/images/select_btn.png">
               아이디..? 없는데...
             </div>
           </router-link>
 
           <router-link to="/user/login">
-            <div class="select" id="toLogin" @click="showLoginModal">
-              <img src="../../assets/images/select_btn.png" />
+            <div
+              id="toLogin"
+              class="select"
+              @click="showLoginModal"
+            >
+              <img src="../../assets/images/select_btn.png">
               어디다가 입력하면 되는거야?
             </div>
           </router-link>
@@ -39,11 +57,16 @@
     <!-- messageModal -->
     <MessageModal v-if="signUpModalOpen">
       <template #character>
-        <img src="../../assets/images/npc1_m.png" class="npc1_m_2"/>
+        <img
+          src="../../assets/images/npc1_m.png"
+          class="npc1_m_2"
+        >
       </template>
       <template #contents>
         <div :style="`margin: 40px 30px; font-size: 12px`">
-          <div :style="`margin-bottom: 3px`">아래 회원가입 란을 띄어놨으니 얼른 적어줘~</div>
+          <div :style="`margin-bottom: 3px`">
+            아래 회원가입 란을 띄어놨으니 얼른 적어줘~
+          </div>
           <div>빠진거 없는지 꼼꼼히 확인 하는것도 잊지마!</div>
         </div>
       </template>
@@ -52,7 +75,10 @@
     <!-- messageModal -->
     <MessageModal v-if="loginModalOpen">
       <template #character>
-        <img src="../../assets/images/npc1_m.png" class="npc1_m_2"/>
+        <img
+          src="../../assets/images/npc1_m.png"
+          class="npc1_m_2"
+        >
       </template>
       <template #contents>
         <div :style="`margin: 30px 30px; font-size: 12px`">

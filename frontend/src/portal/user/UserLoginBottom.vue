@@ -5,11 +5,17 @@
       <div class="wrapper_login">
         <div>
           <label>아이디</label><br>
-          <input type="text" v-model="userId" />
+          <input
+            v-model="userId"
+            type="text"
+          >
         </div>
         <div :style="`margin-bottom: 10px`">
           <label>비밀번호</label><br>
-          <input type="text" v-model="userPw" />
+          <input
+            v-model="userPw"
+            type="text"
+          >
         </div>
         <button>
           <span :style="`margin-top:2px`">로그인</span>
