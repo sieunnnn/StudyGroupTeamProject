@@ -1,19 +1,17 @@
 package com.team.project2.user;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
+import java.util.Random;
 
+
+@Slf4j
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(value = "user")
 public class UserController {
 
     @Autowired
@@ -30,19 +28,33 @@ public class UserController {
 //    }
 //
     // 회원가입
-    @GetMapping(value = "/sign-up")
-    public String signUpPage() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication instanceof AnonymousAuthenticationToken)
-            return ""; // 회원가입 페이지
-        return "redirect:/"; // 회원가입 완료하고 나오는 페이지
+    @RequestMapping(value = "api/user/signup", method = RequestMethod.POST, consumes="application/json;")
+    public void userRegister(@RequestBody UserVO userVO) {
+
+        // 유저 코드 생성
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        String id;
+
+        for (int i = 0; i < 4; i++) {
+            String randomNum = Integer.toString(random.nextInt(10));
+            sb.append(randomNum);
+        }
+
+        id = sb.toString();
+
+        userVO.setId(userVO.getNickname() + "#" + id);
+
+        userService.signup(userVO);
+
+        System.out.println(userVO);
     }
 
-    @PostMapping("/sign-up")
-    public String signup(UserVO userVO) {
-        userService.signup(userVO); // 중복검사 기능 추가하기
-        return "redirect:/"; // 로그인 페이지로 이동
-    }
+//    @PostMapping("/sign-up")
+//    public String signup(UserVO userVO) {
+//        userService.signup(userVO); // 중복검사 기능 추가하기
+//        return "redirect:/"; // 로그인 페이지로 이동
+//    }
 //
 //    // 회원 정보 수정
 //    @GetMapping(value = "/update")

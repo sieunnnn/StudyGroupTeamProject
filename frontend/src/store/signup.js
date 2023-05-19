@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import signup from "@/test/signup";
+import axios from "axios";
 
 export const useSignupStore = defineStore("signup",  {
     id: "signup",
@@ -45,17 +45,16 @@ export const useSignupStore = defineStore("signup",  {
     },
 
     actions: {
-        async submit() {
-            const response = await signup.submit(this.$state);
-
-            if (response.data.errorCode) {
-                alert(response.data.errorMessage);
-                return;
+        async register() {
+            try{
+                await axios.post(`api/user/signup`, JSON.stringify(this.$state));
+                console.log(this.$state);
+                alert("회원가입이 완료되었습니다.");
+            } catch(e) {
+                console.log('에러났어요');
             }
-
-            alert("회원가입이 완료되었습니다.");
         },
-    },
+    }
 });
 
 // 이메일 유효성 검사
@@ -69,5 +68,3 @@ function checkEmail(email) {
 }
 
 // 이메일 중복검사
-
-// 닉네임 중복검사
