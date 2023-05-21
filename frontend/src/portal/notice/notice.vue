@@ -21,6 +21,12 @@
       <noticeLists v-if="isListOpen">
         <label>리스트 보여주기</label>
       </noticeLists>
+      <div>
+        <input
+          v-model="counter.count"
+          type="text"
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -28,12 +34,22 @@
 <script>
 import noticeLists from './noticeList.vue';
 import axios from 'axios';
+import {useCounterStore} from '@/stores/counter';
 
 export default {
+
+
     name: 'AllNotice',
     components:{
         noticeLists
     },
+   setup(){
+      const counter = useCounterStore();
+      return{
+        counter : counter
+      } 
+    },
+ 
     data:function(){
         return {
             isListOpen:false

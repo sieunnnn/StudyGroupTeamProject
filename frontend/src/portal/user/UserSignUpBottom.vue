@@ -2,7 +2,7 @@
 <template>
   <ModalFormA class="container_signup">
     <template #contents>
-      <form class="wrapper_signup">
+      <form @submit.prevent class="wrapper_signup">
         <div :style="`margin-top: 50px`">
           <label>이메일</label><br>
           <input type="text" v-model="signup.email" />
@@ -15,7 +15,7 @@
           <label>닉네임</label><br>
           <input type="text" v-model="signup.nickname" />
         </div>
-        <button @click="signup.submit()" :disabled="!signup.canSignup">
+        <button @click="signup.register()" :disabled="!signup.canSignup">
           <span :style="`margin-top: 2px`">회원가입</span>
         </button>
       </form>
