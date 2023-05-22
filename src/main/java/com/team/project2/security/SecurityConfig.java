@@ -16,6 +16,7 @@ public class SecurityConfig {
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated();
 
+        http.csrf().disable();
 /*
 
         // login 설정
@@ -34,7 +35,6 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/");	// 로그아웃 후 이동할 페이지
 
 */
-
         return http.build();
     }
 }
