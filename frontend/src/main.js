@@ -14,9 +14,10 @@ const app = createApp(App)
 axios.defaults.headers.get['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
+app.config.globalProperties.axios = axios
 
 app.use(router)
-app.config.globalProperties.axios = axios
+
 app.use(store)
     .use(pinia)
     .use(useNoticeStore)

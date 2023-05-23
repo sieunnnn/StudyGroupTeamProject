@@ -18,7 +18,6 @@ import com.team.project2.notice.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("notice/api/notice")
 @RequiredArgsConstructor
 public class NoticeController {
 	
@@ -26,8 +25,7 @@ public class NoticeController {
 	
 	private final NoticeService noticeService;
 
-	//post로 바꿔야함 
-	@PostMapping("newNotice")
+	@PostMapping("notice/api/notice/newNotice")
 	@ResponseBody
 	public String writeNotice(@RequestBody Notice notice) {
 		log.info("Controller : noticeWrite");
@@ -44,13 +42,22 @@ public class NoticeController {
 		System.out.println(notice);
 	}
 	
-	@GetMapping("AllNotice")
+	@GetMapping("api/notice/AllNotice")
 	public List<Notice> AllNotice() {
 		log.info("Conroller : AllNotice");
 		List<Notice> notices = noticeService.readAllNotice();
 		System.out.println(notices);
 		return notices;
 	}
+	
+	@GetMapping("notice/api/notice/AllNotice")
+	public List<Notice> AllNotice2() {
+		log.info("Conroller : AllNotice");
+		List<Notice> notices = noticeService.readAllNotice();
+		System.out.println(notices);
+		return notices;
+	}
+	
 	
 	
 	

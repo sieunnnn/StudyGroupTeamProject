@@ -7,7 +7,12 @@ const notice = [
             {
                 path: "noticeWrite",
                 component: () => import('@/portal/notice/noticeWrite'),
-            }
+            },
+            {
+                path: "noticeUpdate",
+                component: () => import('@/portal/notice/noticeUpdate'),
+            },
+            
         ]
 
     }

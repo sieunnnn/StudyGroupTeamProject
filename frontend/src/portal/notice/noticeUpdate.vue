@@ -1,42 +1,56 @@
 <template>
-  <label>NoticeWrite</label>
+  <label>noticeUpdate</label>
   <ModalFormA>
     <template #contents>
       <form
         class="wrapper_signup"
       >
         <div :style="`margin-top: 50px`">
-          <label>공지사항 제목</label><br>
-          <input
+          <label>공지사항 제목(수정)</label><br>
+          <input 
             v-model="noticeStore.notice"
             type="text"
           >
         </div>
         <div>
-          <label>공지사항 내용</label><br>
+          <label>공지사항 내용(수정)</label><br>
           <input
             v-model="noticeStore.content"
             type="text"
           >
         </div>
-        
-        <button
-          @click="noticeStore.noticeWrite()"
+        <div class="btnList" :style="'display :inline-block'">
+            <button :style="'display: inline-block'"
+          @click="noticeStore.noticeUpdate()"
         >
-          <span :style="`margin-top: 2px`">작성</span>
+          <span :style="`margin-top: 2px`"> 수정</span>
         </button>
+         <button  :style="'display: inline-block'"
+          @click="noticeStore.noticeDelete()"
+        >
+          <span :style="`margin-top: 2px`"> 삭제</span>
+        </button>
+
+        </div>
+        
+
+
+       
       </form>
     </template>
+
+
   </ModalFormA>
 </template>
 
 <script>
+
 import ModalFormA from "@/components/modal/ModalFormA";
 import { useNoticeStore } from "@/store/noticeStore";
 import axios from "axios";
 
 export default {
-    name : 'NoticeWritePage',
+    name : 'NoticeUpdatePage',
      components: {
     ModalFormA
   },
@@ -54,15 +68,15 @@ export default {
   },
   methods:{
 
-    async writeNewNotice(){
-        console.dir(this.noticeStore.noticeWrite)
-         axios.post('api/notice/newNotice',JSON.stringify(this.noticeStore.noticeWrite))
+    async noticeUpdate(){
+         axios.post('api/notice/noticeUpdate',JSON.stringify(this.noticeStore.noticeWrite))
           .then(function(response){
         console.log(response);
        })
     }
-  }
 
+
+  }
 
 }
 </script>

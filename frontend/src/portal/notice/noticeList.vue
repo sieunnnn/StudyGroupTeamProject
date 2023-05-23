@@ -2,14 +2,14 @@
   <noticeLists>
     <template #contents>
       <div class="noticeListHead">
-        공지사항        
-        <div
+        공지사항  
+        <hr>      
+        <a 
           v-for="notice in AllNotice"
           :key="notice"
-          class="noticeLists"
-        >
+          class="noticeLists" @click="getNotice(notice)">
           {{ notice.content }}<hr>
-        </div>
+        </a>
       </div>
     </template>
   </noticeLists>
@@ -43,6 +43,12 @@ export default {
        this.AllNotice= await result.data;
       })
   },
+  methods:{
+    getNotice(notice){
+      this.$router.push('/notice/noticeUpdate')
+      console.dir(notice)
+    }
+  }
 }
 </script>
 
