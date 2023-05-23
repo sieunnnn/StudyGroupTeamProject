@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import { router } from '@/router'
 import store from '@/store/signup'
-import noticeStore from '@/store/noticeStore'
+import useNoticeStore from '@/store/noticeStore'
 import axios from 'axios'
 
 
@@ -19,6 +19,6 @@ app.use(router)
 app.config.globalProperties.axios = axios
 app.use(store)
     .use(pinia)
-    .use(noticeStore)
+    .use(useNoticeStore)
     .mount('#app')
 

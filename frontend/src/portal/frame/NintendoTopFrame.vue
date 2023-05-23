@@ -1,6 +1,6 @@
 <template>
   <!-- <UserMain /> -->
-  <AllNotice/>
+  <AllNotice />
 </template>
 
 <script>

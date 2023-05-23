@@ -44,8 +44,7 @@ export default {
     methods: {
         showNoticeList(){
             setTimeout(()=> this.isListOpen=true,10);
- 
-            
+
         },
         closeNoticeList(){
             if(this.isListOpen==true) this.isListOpen=false;

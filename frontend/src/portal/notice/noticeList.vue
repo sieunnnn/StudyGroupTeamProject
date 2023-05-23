@@ -3,10 +3,14 @@
     <template #contents>
       <div class="noticeListHead">
         공지사항        
-       <div class="noticeLists" v-for="notice in this.AllNotice" >
-          {{notice.content}}<hr>
+        <div
+          v-for="notice in AllNotice"
+          :key="notice"
+          class="noticeLists"
+        >
+          {{ notice.content }}<hr>
         </div>
-        </div>
+      </div>
     </template>
   </noticeLists>
 </template>
@@ -37,7 +41,6 @@ export default {
      this.test= this.noticeStore.fetchReceiveNoticeList();
       this.test.then(async (result)=>{
        this.AllNotice= await result.data;
-       console.dir(this.AllNotice)
       })
   },
 }

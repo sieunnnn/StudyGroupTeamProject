@@ -7,7 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.team.project2.notice.dto.Notice;
@@ -16,7 +18,7 @@ import com.team.project2.notice.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("api/notice")
+@RequestMapping("notice/api/notice")
 @RequiredArgsConstructor
 public class NoticeController {
 	
@@ -26,9 +28,12 @@ public class NoticeController {
 
 	//post로 바꿔야함 
 	@PostMapping("newNotice")
-	public void writeNotice(Notice notice) {
+	@ResponseBody
+	public String writeNotice(@RequestBody Notice notice) {
 		log.info("Controller : noticeWrite");
+		System.out.println(notice);
 		noticeService.insertNotice(notice);		
+		return "작성성공";
 	}
 	
 	@GetMapping("selectNotice")
