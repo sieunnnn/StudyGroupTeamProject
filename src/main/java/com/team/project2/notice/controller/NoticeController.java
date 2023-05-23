@@ -1,5 +1,7 @@
 package com.team.project2.notice.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("api/notice")
-@CrossOrigin(origins = "http://localhost:8081/")
 @RequiredArgsConstructor
 public class NoticeController {
 	
@@ -36,6 +37,14 @@ public class NoticeController {
 		log.info("Conroller : readNotice");
 		Notice notice = noticeService.readNotice(noticeIdx);
 		System.out.println(notice);
+	}
+	
+	@GetMapping("AllNotice")
+	public List<Notice> AllNotice() {
+		log.info("Conroller : AllNotice");
+		List<Notice> notices = noticeService.readAllNotice();
+		System.out.println(notices);
+		return notices;
 	}
 	
 	

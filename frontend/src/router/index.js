@@ -1,8 +1,10 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import { userPages } from '@/router/user-pages'
+import { notice } from '@/router/notice'
 
 const routes = [
-    ...userPages
+    ...userPages,
+    ...notice
 ]
 
 // 라우터 생성

@@ -1,5 +1,6 @@
 package com.team.project2.notice.mapper;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
@@ -26,5 +27,8 @@ public interface NoticeMapper {
 
 	@Select("select * from notice where notice_idx=#{noticeIdx}")
 	Notice selectNotice(int noticeIdx);
+
+	@Select("select * from notice")
+	List<Notice> selectAllNotice();
 
 }
