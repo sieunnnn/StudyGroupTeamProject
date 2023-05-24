@@ -2,16 +2,16 @@
 <template>
   <div class="container_login">
     <div class="modal_login">
-      <form @submit.prevent="submitLoginForm" class="wrapper_login">
+      <form @submit.prevent="submitLoginForm" enctype="multipart/form-data" class="wrapper_login">
         <div>
-          <label>아이디</label><br>
-          <input type="text" v-model="userId" />
+          <label>이메일</label><br>
+          <input type="text" v-model="login.email" />
         </div>
         <div :style="`margin-bottom: 10px`">
           <label>비밀번호</label><br>
-          <input type="text" v-model="userPw" />
+          <input type="text" v-model="login.password" />
         </div>
-        <button>
+        <button @click="login.login()">
           <span :style="`margin-top:2px`">로그인</span>
         </button>
       </form>
@@ -20,15 +20,17 @@
 </template>
 
 <script>
-export default {
-  name: 'Login',
+import {loginStore} from "@/store/login";
 
-  data: function () {
+export default {
+  setup() {
+    const login = loginStore();
     return {
-      userId: '아이디를 입력해주세요.',
-      userPw: '비밀번호를 입력해주세요.'
+      login: login
     }
   },
+
+  name: 'Login',
 
   methods: {
     submitLoginForm() {

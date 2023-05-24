@@ -17,19 +17,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
-//    // 로그인
-//    @GetMapping(value = "/login")
-//    public String loginPage() {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//
-//        if (authentication instanceof AnonymousAuthenticationToken)
-//            return ""; // 로그인 페이지
-//        return "redirect:/"; // 로그인 하고 나오는 페이지
-//    }
-//
     // 회원가입
     @RequestMapping(value = "api/user/signup", method = RequestMethod.POST, consumes="application/json;")
-    public void userRegister(@RequestBody UserVO userVO) {
+    public void userRegister(@RequestBody UserDAO userDAO) {
 
         // 유저 코드 생성
         Random random = new Random();
@@ -43,16 +33,15 @@ public class UserController {
 
         id = sb.toString();
 
-        userVO.setId(userVO.getNickname() + "#" + id);
+        userDAO.setId(userDAO.getNickname() + "#" + id);
+        userDAO.setRole("USER");
 
-        userService.signup(userVO);
-
-        System.out.println(userVO);
+        userService.signup(userDAO);
     }
 
 //    @PostMapping("/sign-up")
-//    public String signup(UserVO userVO) {
-//        userService.signup(userVO); // 중복검사 기능 추가하기
+//    public String signup(userDAO userDAO) {
+//        userService.signup(userDAO); // 중복검사 기능 추가하기
 //        return "redirect:/"; // 로그인 페이지로 이동
 //    }
 //
@@ -60,8 +49,8 @@ public class UserController {
 //    @GetMapping(value = "/update")
 //    public String editPage(Model model) {
 //        String id = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        UserVO userVO = userService.getUserById(id);
-//        model.addAttribute("user", userVO);
+//        userDAO userDAO = userService.getUserById(id);
+//        model.addAttribute("user", userDAO);
 //        return ""; // 수정 페이지
 //    }
 //

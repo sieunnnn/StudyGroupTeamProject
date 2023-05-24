@@ -25,11 +25,11 @@
 
 <script>
 import ModalFormA from "@/components/modal/ModalFormA";
-import { useSignupStore } from "@/store/signup";
+import { signupStore } from "@/store/signup";
 
 export default {
   setup() {
-    const signup = useSignupStore();
+    const signup = signupStore();
     return {
       signup: signup
     }

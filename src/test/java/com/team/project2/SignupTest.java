@@ -1,7 +1,7 @@
 package com.team.project2;
 
 import com.team.project2.user.UserMapper;
-import com.team.project2.user.UserVO;
+import com.team.project2.user.UserDAO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
@@ -11,10 +11,12 @@ import org.springframework.test.annotation.Rollback;
 
 import java.util.Random;
 
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+
 @MybatisTest
 @Rollback(false)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class UserTest {
+public class SignupTest {
 
     @Autowired
     private UserMapper userMapper;
@@ -35,7 +37,7 @@ public class UserTest {
 
         id = sb.toString();
 
-        UserVO userVO = new UserVO();
+        UserDAO userVO = new UserDAO();
 
         userVO.setId("nickname1#" + id);
         userVO.setPassword("123qwe!@#QWE");
@@ -43,6 +45,7 @@ public class UserTest {
         userVO.setNickname("nickname1");
         userVO.setTitle("lv.1");
         userVO.setWithdraw(false);
+        userVO.setRole("USER");
 
         userMapper.insertUser(userVO);
 
