@@ -7,10 +7,11 @@ export const useNoticeStore=defineStore("noticeStore",{
         noticeIdx:"",
         notice:"",
         content:"",
+        writeDate:""
     }),
     getters:{
         getState:function(state) {
-            console.dir(state)
+            console.dir(state)  
             return state;
           }
         
@@ -24,10 +25,12 @@ export const useNoticeStore=defineStore("noticeStore",{
             axios.post('api/notice/newNotice',JSON.stringify(this.$state))
         },
         async noticeUpdate(){
+            console.dir(this.$state)
             axios.post('api/notice/noticeUpdate',JSON.stringify(this.$state))
         },
         async noticeDelete(){
-            axios.post('api/notice/noticeDelete',JSON.stringify(this.noticeIdx))
+            console.dir(this.$state)
+            axios.post('api/notice/noticeDelete',JSON.stringify(this.$state))
         },
 
     }

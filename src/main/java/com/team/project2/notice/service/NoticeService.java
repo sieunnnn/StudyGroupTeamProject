@@ -11,4 +11,8 @@ public interface NoticeService {
 	Notice readNotice(int noticeIdx);
 
 	List<Notice> readAllNotice();
+
+	String updateNotice(Notice notice);
+
+	Integer delectNotice(Notice notice);
 }

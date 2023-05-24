@@ -4,12 +4,20 @@
       <div class="noticeListHead">
         공지사항  
         <hr>      
-        <a 
+        <div
           v-for="notice in AllNotice"
           :key="notice"
-          class="noticeLists" @click="getNotice(notice)">
-          {{ notice.content }}<hr>
-        </a>
+          class="noticeLists">
+          <a @click="getNotice(notice)">
+              {{ notice.content }} 
+          </a>
+          <div>
+            {{formatDate(notice.writeDate) }}
+          </div>
+          
+          <hr>
+        </div>
+
       </div>
     </template>
   </noticeLists>
@@ -18,6 +26,7 @@
 <script>
 import noticeLists from '../../components/modal/ModalFormA.vue'
 import { useNoticeStore } from "@/store/noticeStore";
+
 
 export default {
     name: 'NoticeList',
@@ -45,10 +54,15 @@ export default {
   },
   methods:{
     getNotice(notice){
+      this.noticeStore.$state=notice;
       this.$router.push('/notice/noticeUpdate')
-      console.dir(notice)
-    }
+      
+    },
+   formatDate(dateString) {
+    return dateString.substring(2,10)
+  },
   }
+
 }
 </script>
 

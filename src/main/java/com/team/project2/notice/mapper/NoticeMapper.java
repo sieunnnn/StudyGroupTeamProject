@@ -23,12 +23,20 @@ public interface NoticeMapper {
 	@Update("update notice "
 			+ "set notice = #{notice.notice}, content = #{notice.content}"
 			+ " where notice_idx = #{noticeIdx}")
-	int updateNoticeByIdx(Map<String, Object> command);
+	int updateNoticeByIdxWithMap(Map<String, Object> command);
+	
+	@Update("update notice "
+			+ "set notice = #{notice}, content = #{content}"
+			+ " where notice_idx = #{noticeIdx}")
+	int updateNoticeByIdx(Notice notice);
 
 	@Select("select * from notice where notice_idx=#{noticeIdx}")
 	Notice selectNotice(int noticeIdx);
 
 	@Select("select * from notice")
 	List<Notice> selectAllNotice();
+
+	@Delete("delete from notice where notice_idx = #{noticeIdx}")
+	Integer deleteNotice(Notice notice);
 
 }

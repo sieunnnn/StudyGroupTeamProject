@@ -22,6 +22,7 @@
         <div class="btnList" :style="'display :inline-block'">
             <button :style="'display: inline-block'"
           @click="noticeStore.noticeUpdate()"
+         
         >
           <span :style="`margin-top: 2px`"> 수정</span>
         </button>

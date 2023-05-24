@@ -1,6 +1,8 @@
 package com.team.project2.notice.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -30,5 +32,16 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public List<Notice> readAllNotice() {
 		return noticeMapper.selectAllNotice();
+	}
+
+	@Override
+	public String updateNotice(Notice notice) {
+		noticeMapper.updateNoticeByIdx(notice);
+		return "수정 성공";
+	}
+
+	@Override
+	public Integer delectNotice(Notice notice) {
+		return noticeMapper.deleteNotice(notice);
 	}
 }

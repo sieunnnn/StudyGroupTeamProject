@@ -25,14 +25,7 @@ public class NoticeController {
 	
 	private final NoticeService noticeService;
 
-	@PostMapping("notice/api/notice/newNotice")
-	@ResponseBody
-	public String writeNotice(@RequestBody Notice notice) {
-		log.info("Controller : noticeWrite");
-		System.out.println(notice);
-		noticeService.insertNotice(notice);		
-		return "작성성공";
-	}
+	
 	
 	@GetMapping("selectNotice")
 	public void readNotice() {
@@ -57,6 +50,34 @@ public class NoticeController {
 		System.out.println(notices);
 		return notices;
 	}
+	
+	@PostMapping("notice/api/notice/newNotice")
+	@ResponseBody
+	public String writeNotice(@RequestBody Notice notice) {
+		log.info("Controller : noticeWrite");
+		System.out.println(notice);
+		noticeService.insertNotice(notice);		
+		return "작성성공";
+	}
+	
+	@PostMapping("notice/api/notice/noticeUpdate")
+	@ResponseBody
+	public String noticeUpdate(@RequestBody Notice notice) {
+		log.info("Controller : noticeUpdate");
+		System.out.println(notice);
+		noticeService.updateNotice(notice);	
+		return "수정 성공";
+	}
+	
+	@PostMapping("notice/api/notice/noticeDelete")
+	@ResponseBody
+	public String noticeDelete(@RequestBody Notice notice) {
+		log.info("Controller : noticeDelete");
+		int delect = noticeService.delectNotice(notice);
+		System.out.println(delect+"개의 공지사항이 삭제됨");
+		return "삭제 성공";
+	}
+	
 	
 	
 	
