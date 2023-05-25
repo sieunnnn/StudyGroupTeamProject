@@ -3,8 +3,12 @@ package com.team.project2.user;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Random;
 
 
@@ -37,6 +41,20 @@ public class UserController {
         userDAO.setRole("USER");
 
         userService.signup(userDAO);
+    }
+    @GetMapping("/api/user/login/success")
+    public ResponseEntity success () {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("result", 1);
+
+        return ResponseEntity.ok(map);
+    }
+    @GetMapping("/api/user/login/fail")
+    public ResponseEntity fail () {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("result", -1);
+
+        return ResponseEntity.ok(map);
     }
 
 //    @PostMapping("/sign-up")

@@ -11,17 +11,18 @@ export const loginStore = defineStore("login", {
     }),
 
     actions: {
+
         // 로그인
         async login() {
-            try{
-                await axios.post(`api/user/login`, this.$state)
-                axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+            axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 
-                console.log(this.$state);
+            const res = await axios.post(`api/user/login`, this.$state)
 
-            } catch (e) {
-                console.error('login error: ', e);
-            }
+            const data = res.data || {}
+            const result = data.result || 0
+
+            return result
         }
+
     }
 })
