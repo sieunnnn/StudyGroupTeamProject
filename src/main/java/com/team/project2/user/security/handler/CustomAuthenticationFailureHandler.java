@@ -19,7 +19,9 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
                                         AuthenticationException exception) throws IOException, ServletException {
-//        response.sendRedirect("http://localhost:8080/api/login/fail");
+
+        response.sendRedirect("http://localhost:8080/user/api/user/login/fail");
+
         System.out.println("로그인 실패");
     }
 

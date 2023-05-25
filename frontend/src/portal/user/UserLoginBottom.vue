@@ -11,7 +11,7 @@
           <label>비밀번호</label><br>
           <input type="text" v-model="login.password" />
         </div>
-        <button @click="login.login()">
+        <button @click="doLogin()">
           <span :style="`margin-top:2px`">로그인</span>
         </button>
       </form>
@@ -21,6 +21,7 @@
 
 <script>
 import {loginStore} from "@/store/user/login";
+import {router} from "@/router";
 
 export default {
   setup() {
@@ -32,9 +33,26 @@ export default {
 
   name: 'Login',
 
+  inject: ['loginCheck'],
+
   methods: {
     submitLoginForm() {
       console.log('전송완료');
+    },
+
+    async doLogin () {
+      const login = this.login
+      const result = await login.login()
+
+      if (result > 0) {
+        router.push(`/menu/home`);
+
+      } else {
+        // 로그인 실패
+      }
+
+      this.loginCheck(result)
+
     }
   }
 }

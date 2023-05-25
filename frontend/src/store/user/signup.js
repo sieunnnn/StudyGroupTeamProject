@@ -47,14 +47,12 @@ export const signupStore = defineStore("signup",  {
 
     actions: {
         async register() {
-            try{
-                await axios.post(`api/user/signup`, JSON.stringify(this.$state));
-                console.log(this.$state);
-                alert("회원가입이 완료되었습니다.");
-                router.push(`/user/login`);
-            } catch(e) {
-                console.log('에러났어요');
-            }
+            await axios.post(`api/user/signup`, JSON.stringify(this.$state));
+            console.log(this.$state);
+
+            alert("회원가입이 완료되었습니다.");
+
+            router.push(`/user/login`);
         },
     }
 });

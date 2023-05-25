@@ -1,7 +1,6 @@
 package com.team.project2.user.security.handler;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -21,7 +20,8 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                                         Authentication authentication) throws IOException, ServletException {
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(60);
-//        response.sendRedirect("http://localhost:8080/api/login/success");
+
+        response.sendRedirect("http://localhost:8080/user/api/user/login/success");
 
         System.out.println("로그인 성공");
     }
