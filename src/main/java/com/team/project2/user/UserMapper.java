@@ -15,7 +15,7 @@ public interface UserMapper {
     // 회원 정보 가져오기
     UserDAO getUserByEmail(String email);
 
-    UserDto getUsernameByEmail(String email);
+    UserResponses getUsernameByEmail(String email);
 
     UserDAO getUserById(String id);
 

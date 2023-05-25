@@ -28,7 +28,7 @@ public class UserService {
         return userMapper.getUserByEmail(email);
     }
 
-    public UserDto getUsernameByEmail(String email) {
+    public UserResponses getUsernameByEmail(String email) {
         return userMapper.getUsernameByEmail(email);
     }
 

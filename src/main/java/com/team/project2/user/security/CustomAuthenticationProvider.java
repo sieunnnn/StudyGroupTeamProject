@@ -1,6 +1,6 @@
 package com.team.project2.user.security;
 
-import com.team.project2.user.UserDto;
+import com.team.project2.user.UserResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -23,7 +23,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        UserDto user = (UserDto) customUserDetailsService.loadUserByUsername(authentication.getName().toString());
+        UserResponses user = (UserResponses) customUserDetailsService.loadUserByUsername(authentication.getName().toString());
 
         String reqPassword = authentication.getCredentials().toString();
         if(!passwordEncoder.matches(reqPassword, user.getPassword())) throw new BadCredentialsException("Not Found User");

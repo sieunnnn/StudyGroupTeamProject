@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import lombok.ToString;
 
 @ToString
-public class UserDto implements UserDetails {
+public class UserResponses implements UserDetails {
 
     String ROLE_PREFIX = "ROLE_";
 
