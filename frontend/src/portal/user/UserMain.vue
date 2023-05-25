@@ -163,7 +163,7 @@
 
 <script>
 import MessageModal from "@/components/modal/MessageModal";
-import { signupStore } from "@/store/signup";
+import { signupStore } from "@/store/user/signup";
 
 export default {
   setup() {

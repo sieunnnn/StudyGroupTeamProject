@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {loginStore} from "@/store/login";
+import {loginStore} from "@/store/user/login";
 
 export default {
   setup() {

@@ -25,7 +25,7 @@
 
 <script>
 import ModalFormA from "@/components/modal/ModalFormA";
-import { signupStore } from "@/store/signup";
+import { signupStore } from "@/store/user/signup";
 
 export default {
   setup() {
