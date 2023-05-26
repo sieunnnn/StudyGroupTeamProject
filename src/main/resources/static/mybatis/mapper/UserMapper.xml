@@ -3,7 +3,7 @@
 <mapper namespace="com.team.project2.user.UserMapper">
 
     <!-- User 테이블 가져오기 -->
-    <select id="getUserList" resultType="com.team.project2.user.UserVO">
+    <select id="getUserList" resultType="com.team.project2.user.UserDAO">
         SELECT *
         FROM user
     </select>
@@ -11,19 +11,26 @@
     <!-- 회원가입 -->
     <insert id="insertUser">
         INSERT INTO user
-            (id, password, email, nickname, title, withdraw)
+            (id, password, email, nickname, title, withdraw, role)
         VALUES
-            (#{id}, #{password}, #{email}, #{nickname}, #{title}, #{withdraw})
+            (#{id}, #{password}, #{email}, #{nickname}, #{title}, #{withdraw}, #{role})
     </insert>
 
     <!-- 회원 정보 가져오기 -->
-    <select id="getUserByEmail" resultType="com.team.project2.user.UserVO">
+    <select id="getUserByEmail" resultType="com.team.project2.user.UserDAO">
         SELECT *
         FROM user
         WHERE email = #{email}
     </select>
 
-    <select id="getUserById" resultType="com.team.project2.user.UserVO">
+    <!-- 회원 정보 가져오기 -->
+    <select id="getUsernameByEmail" resultType="com.team.project2.user.UserResponses">
+        SELECT *
+        FROM user
+        WHERE email = #{email}
+    </select>
+
+    <select id="getUserById" resultType="com.team.project2.user.UserDAO">
         SELECT *
         FROM user
         WHERE id = #{id}

@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import {router} from "@/router";
 
-export const useSignupStore = defineStore("signup",  {
+export const signupStore = defineStore("signup",  {
     id: "signup",
 
     state: () => ({
@@ -46,13 +47,12 @@ export const useSignupStore = defineStore("signup",  {
 
     actions: {
         async register() {
-            try{
-                await axios.post(`api/user/signup`, JSON.stringify(this.$state));
-                console.log(this.$state);
-                alert("회원가입이 완료되었습니다.");
-            } catch(e) {
-                console.log('에러났어요');
-            }
+            await axios.post(`api/user/signup`, JSON.stringify(this.$state));
+            console.log(this.$state);
+
+            alert("회원가입이 완료되었습니다.");
+
+            router.push(`/user/login`);
         },
     }
 });
@@ -66,5 +66,3 @@ function checkEmail(email) {
         return false;
     }
 }
-
-// 이메일 중복검사

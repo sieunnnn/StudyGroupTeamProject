@@ -2,25 +2,16 @@
 <template>
   <div class="container_login">
     <div class="modal_login">
-      <form
-        class="wrapper_login"
-        @submit.prevent="submitLoginForm"
-      >
+      <form @submit.prevent="submitLoginForm" enctype="multipart/form-data" class="wrapper_login">
         <div>
-          <label>아이디</label><br>
-          <input
-            v-model="userId"
-            type="text"
-          >
+          <label>이메일</label><br>
+          <input type="text" v-model="login.email" />
         </div>
         <div :style="`margin-bottom: 10px`">
           <label>비밀번호</label><br>
-          <input
-            v-model="userPw"
-            type="text"
-          >
+          <input type="text" v-model="login.password" />
         </div>
-        <button>
+        <button @click="doLogin()">
           <span :style="`margin-top:2px`">로그인</span>
         </button>
       </form>
@@ -29,19 +20,39 @@
 </template>
 
 <script>
-export default {
-  name: 'Login',
+import {loginStore} from "@/store/user/login";
+import {router} from "@/router";
 
-  data: function () {
+export default {
+  setup() {
+    const login = loginStore();
     return {
-      userId: '아이디를 입력해주세요.',
-      userPw: '비밀번호를 입력해주세요.'
+      login: login
     }
   },
+
+  name: 'Login',
+
+  inject: ['loginCheck'],
 
   methods: {
     submitLoginForm() {
       console.log('전송완료');
+    },
+
+    async doLogin () {
+      const login = this.login
+      const result = await login.login()
+
+      if (result > 0) {
+        router.push(`/menu/home`);
+
+      } else {
+        // 로그인 실패
+      }
+
+      this.loginCheck(result)
+
     }
   }
 }

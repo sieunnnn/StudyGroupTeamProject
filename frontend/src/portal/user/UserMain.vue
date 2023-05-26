@@ -14,7 +14,7 @@
       <img src="../../assets/images/kirby_org.png">
     </div>
 
-    <!-- messageModal -->
+    <!-- 첫 대화창 -->
     <MessageModal v-if="modalOpen">
       <template #character>
         <img
@@ -54,7 +54,7 @@
       </template>
     </MessageModal>
 
-    <!-- messageModal -->
+    <!-- 회원가입 클릭 시 -->
     <MessageModal v-if="signUpModalOpen">
       <template #character>
         <img
@@ -78,7 +78,7 @@
       </template>
     </MessageModal>
 
-    <!-- messageModal -->
+    <!-- 로그인 클릭시 -->
     <MessageModal v-if="loginModalOpen">
       <template #character>
         <img
@@ -107,7 +107,7 @@
       </template>
     </MessageModal>
 
-    <!-- messageModal -->
+    <!-- 회원가입 validation -->
     <MessageModal v-if="signupValidation">
       <template #character>
         <img
@@ -144,7 +144,7 @@
       </template>
     </MessageModal>
 
-    <!-- messageModal -->
+    <!-- 회원가입 -> 로그인 -->
     <MessageModal v-if="askLogin">
       <template #character>
         <img
@@ -184,7 +184,7 @@
       </template>
     </MessageModal>
 
-    <!-- messageModal -->
+    <!-- 로그인 -> 회원가입 -->
     <MessageModal v-if="askSignup">
       <template #character>
         <img
@@ -229,9 +229,15 @@
 
 <script>
 import MessageModal from "@/components/modal/MessageModal";
-import { useSignupStore } from "@/store/signup";
+import { signupStore } from "@/store/user/signup";
 
 export default {
+  setup() {
+    const signup = signupStore();
+    return {
+      signup: signup
+    }
+  },
 
   name: 'UserMain',
 
@@ -292,36 +298,5 @@ export default {
     }
   }
 
-  // data() {
-  //   return {
-  //     kirby_position_top: '',
-  //     kirby_position_left: ''
-  //   }
-  // },
-  //
-  // methods: {
-  //   movePosition: function () {
-  //     let kirbyTop = this.$refs.kirby_position.offsetTop;
-  //     let kirbyLeft = this.$refs.kirby_position.offsetLeft;
-  //
-  //     this.kirby_position_top = `${kirbyTop}px`;
-  //     this.kirby_position_left = `${kirbyLeft}px`;
-  //
-  //     document.addEventListener("keydown", (e) => {
-  //       if (e.keyCode === 37) {
-  //         this.kirby_position_left = `${kirbyLeft}px + 10px`;
-  //         this.kirby_position_top = `${kirbyTop}px`;
-  //         console.log('이벤트!')
-  //       }
-  //     });
-  //
-  //     console.log('kirbyTop', kirbyTop);
-  //     console.log('kirbyLeft', kirbyLeft);
-  //   }
-  // },
-  //
-  // mounted() {
-  //   this.movePosition()
-  // }
 }
 </script>
