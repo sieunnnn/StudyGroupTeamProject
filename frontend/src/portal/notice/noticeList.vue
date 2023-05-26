@@ -7,17 +7,17 @@
         <div
           v-for="notice in AllNotice"
           :key="notice"
-          class="noticeLists">
+          class="noticeLists"
+        >
           <a @click="getNotice(notice)">
-              {{ notice.content }} 
+            {{ notice.content }} 
           </a>
           <div>
-            {{formatDate(notice.writeDate) }}
+            {{ formatDate(notice.writeDate) }}
           </div>
           
           <hr>
         </div>
-
       </div>
     </template>
   </noticeLists>

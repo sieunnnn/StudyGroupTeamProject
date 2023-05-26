@@ -19,28 +19,25 @@
             type="text"
           >
         </div>
-        <div class="btnList" :style="'display :inline-block'">
-            <button :style="'display: inline-block'"
-          @click="noticeStore.noticeUpdate()"
-         
+        <div
+          class="btnList"
+          :style="'display :inline-block'"
         >
-          <span :style="`margin-top: 2px`"> 수정</span>
-        </button>
-         <button  :style="'display: inline-block'"
-          @click="noticeStore.noticeDelete()"
-        >
-          <span :style="`margin-top: 2px`"> 삭제</span>
-        </button>
-
+          <button
+            :style="'display: inline-block'"
+            @click="noticeStore.noticeUpdate()"
+          >
+            <span :style="`margin-top: 2px`"> 수정</span>
+          </button>
+          <button
+            :style="'display: inline-block'"
+            @click="noticeStore.noticeDelete()"
+          >
+            <span :style="`margin-top: 2px`"> 삭제</span>
+          </button>
         </div>
-        
-
-
-       
       </form>
     </template>
-
-
   </ModalFormA>
 </template>
 
