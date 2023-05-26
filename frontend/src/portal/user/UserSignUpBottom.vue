@@ -40,20 +40,20 @@
 
 <script>
 import ModalFormA from "@/components/modal/ModalFormA";
-import { useSignupStore } from "@/store/signup";
+import { signupStore } from "@/store/user/signup";
 
 export default {
+  setup() {
+    const signup = signupStore();
+    return {
+      signup: signup
+    }
+  },
 
   name: 'SignUp',
 
   components: {
     ModalFormA
-  },
-  setup() {
-    const signup = useSignupStore();
-    return {
-      signup: signup
-    }
   }
 }
 </script>

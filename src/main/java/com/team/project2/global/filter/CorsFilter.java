@@ -1,4 +1,4 @@
-package com.team.project2.filter;
+package com.team.project2.global.filter;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
