@@ -1,4 +1,4 @@
-const notice = [
+const noticePages = [
    
     {
         path: '/notice',
@@ -18,4 +18,4 @@ const notice = [
     }
 
 ]
-export { notice }
+export { noticePages }

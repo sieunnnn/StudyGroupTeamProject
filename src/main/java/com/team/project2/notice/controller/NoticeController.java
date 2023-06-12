@@ -4,11 +4,9 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,8 +33,16 @@ public class NoticeController {
 		System.out.println(notice);
 	}
 	
-	@GetMapping("api/notice/AllNotice")
+	@GetMapping("menu/api/notice/AllNotice")
 	public List<Notice> AllNotice() {
+		log.info("Conroller : AllNotice");
+		List<Notice> notices = noticeService.readAllNotice();
+		System.out.println(notices);
+		return notices;
+	}
+	
+	@GetMapping("api/notice/AllNotice")
+	public List<Notice> AllNotice1() {
 		log.info("Conroller : AllNotice");
 		List<Notice> notices = noticeService.readAllNotice();
 		System.out.println(notices);
